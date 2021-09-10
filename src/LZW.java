@@ -42,18 +42,31 @@ import java.io.IOException;
 					//word=word.substring(current.length()); 
 				} else {
 					next=word.substring(current.length()); 
+					word=""; 
 				}
 			}
 				else {
-					tracker.add(current); 
+					tracker.add(current);
+					word=""; 
 				}
 			}
 				
+	}
+	
+	public String numbers () {
+		String num=""; 
+		for (int i=0; i<tracker.size(); i++) {
+			String temp = tracker.get(i); 
+			int id=dictionary.get(temp); 
+			num=num+" "+id; 
+		}
+		return (num); 
 	}
 		
 		public static void main (String [] args) throws IOException {
 			LZW word = new LZW (); 
 			word.algorithim(); 
+			System.out.println(word.numbers()); 
 			System.out.println("Hello World"); 
 		}
 		}
