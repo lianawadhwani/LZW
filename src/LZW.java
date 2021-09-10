@@ -15,8 +15,13 @@ import java.io.IOException;
 		
 
 		public LZW () throws IOException{
-			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("/Users/lianawadhwani/Desktop/test.txt"))); // this line reads the file 
-			word = reader.readLine(); 
+			word=""; 
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("/Users/lianawadhwani/Desktop/test.txt"))); // this line reads the file
+			String line = reader.readLine();
+			while (line != null) {
+				word+=line; 
+				line= reader.readLine();
+			}
 			for (int i=0; i<256; i++) {
 				dictionary.put(""+(char)i,i); // this line takes a number converts in to a char and then corresponds that to the number
 				
