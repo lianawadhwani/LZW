@@ -38,18 +38,14 @@ import java.io.IOException;
 					tracker.add(current); 
 					word=word.substring(current.length()); 
 					current=word.substring(0,1); 
-					next=word.substring(1,2); // create an if statment to deal with
+					if (word.length()>1) {
+						next=word.substring(1,2); // create an if statment to deal with
+					}
 				} else if (word.length()>1 && dictionary.containsKey(""+current+next)){
 					current=""+current+next; 
-					if (word.length()>3)
-					{
 					next=word.substring(current.length(), current.length()+1); 
 					//word=word.substring(current.length()); 
-				} else {
-					next=word.substring(current.length()); 
-					word=""; 
 				}
-			}
 				else {
 					tracker.add(current);
 					word=""; 
