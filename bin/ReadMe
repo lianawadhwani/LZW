@@ -1,0 +1,5 @@
+Read Me: 
+
+I have currently only run my code on one text file, so I have no clue if it actually works for all cases. 
+I was able to print out the numbers. For the most part they look right except that i go from 256 to 258 (ie skip 257). 
+I wasn't able to change the numbers into binary code or output a file. 

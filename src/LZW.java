@@ -34,7 +34,8 @@ import java.io.IOException;
 			while (word.length()>0) {
 				if (dictionary.containsKey(""+current+next)==false && word.length()>1) {
 					String output=""+current+next; 
-					dictionary.put(output, size+1); 
+					size++; 
+					dictionary.put(output,size); 
 					tracker.add(current); 
 					word=word.substring(current.length()); 
 					current=word.substring(0,1); 
