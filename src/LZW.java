@@ -31,20 +31,25 @@ import java.io.IOException;
 					String output=""+current+next; 
 					dictionary.put(output, size+1); 
 					tracker.add(current); 
-					word=word.substring(1); 
+					word=word.substring(current.length()); 
 					current=word.substring(0,1); 
-					next=word.substring(1,2); // create an if statment to deal with 
+					next=word.substring(1,2); // create an if statment to deal with
 				} else if (word.length()>1 && dictionary.containsKey(""+current+next)){
 					current=""+current+next; 
+					if (word.length()>3)
+					{
 					next=word.substring(current.length(), current.length()+1); 
-					word=word.substring(current.length()); 
+					//word=word.substring(current.length()); 
+				} else {
+					next=word.substring(current.length()); 
 				}
+			}
 				else {
 					tracker.add(current); 
 				}
 			}
 				
-			}
+	}
 		
 		public static void main (String [] args) throws IOException {
 			LZW word = new LZW (); 
