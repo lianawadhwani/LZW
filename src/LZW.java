@@ -55,7 +55,7 @@ import java.io.IOException;
 				
 	}
 		
-			public String decompress1()
+	public String decompress1()
 	{
 		
 		
