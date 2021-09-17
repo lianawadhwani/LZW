@@ -54,6 +54,58 @@ import java.io.IOException;
 			}
 				
 	}
+		
+	public String decompress1()
+	{
+		
+		
+		HashMap<Integer, String> newDict = new HashMap<Integer,String>(); 
+
+		String adding = ""; 
+		
+		for (int i=0; i<256; i++) 
+		{ 
+			newDict.put(i, ""+(char)i);
+		}
+		
+		for(int index = 0; index < nums.size()-1; index ++)
+			
+		{
+			
+			
+			int currentInt = nums.get(index); 
+			if(nums.get(index+1)>newDict.size()-1)
+			{
+				System.out.println(nums.get(index+1)); 
+				String current = newDict.get(nums.get(index)); 
+				System.out.println(current); 
+				String firstPreviousAdded = ""+current.charAt(0); 
+				newDict.put(newDict.size(), current+firstPreviousAdded); 
+			}
+			else
+			{
+	
+			String currentString = newDict.get(nums.get(index)); 
+			String nextString = newDict.get(nums.get(index+1)); 
+			
+			String firstN = ""+nextString.charAt(0); 
+			newDict.put(newDict.size(), currentString+firstN);
+			
+			}
+		
+			
+		}
+		
+	
+		for(int index = 0; index<nums.size(); index ++)
+		{
+			
+			adding+= newDict.get(nums.get(index)); 
+		}
+		return adding; 
+		
+		
+	}
 	
 	public String numbers () {
 		String num=""; 
@@ -61,6 +113,7 @@ import java.io.IOException;
 			String temp = tracker.get(i); 
 			int id=dictionary.get(temp); 
 			num=num+" "+id; 
+			nums.add(dictionary.get(temp));
 		}
 		return (num); 
 	}
@@ -69,6 +122,8 @@ import java.io.IOException;
 			LZW word = new LZW (); 
 			word.algorithim(); 
 			System.out.println(word.numbers()); 
+			System.out.println(word.nums); //changed nums to public to check this statement, then chaged it back to private
+			System.out.println(word.decompress1()); 
 			System.out.println("Hello World"); 
 		}
 		}
